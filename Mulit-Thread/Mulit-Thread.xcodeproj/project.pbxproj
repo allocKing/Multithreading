@@ -48,6 +48,7 @@
 		3845F2961CF9BE12001DDE67 /* CZBaseControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 3845F2871CF9BE12001DDE67 /* CZBaseControl.m */; };
 		3845F2971CF9BE12001DDE67 /* CZBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3845F2891CF9BE12001DDE67 /* CZBaseView.m */; };
 		3845F2981CF9BE12001DDE67 /* CZBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3845F28B1CF9BE12001DDE67 /* CZBaseViewController.m */; };
+		3845F29B1CF9C193001DDE67 /* GTXThreadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3845F29A1CF9C193001DDE67 /* GTXThreadModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -134,6 +135,8 @@
 		3845F2891CF9BE12001DDE67 /* CZBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CZBaseView.m; sourceTree = "<group>"; };
 		3845F28A1CF9BE12001DDE67 /* CZBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CZBaseViewController.h; sourceTree = "<group>"; };
 		3845F28B1CF9BE12001DDE67 /* CZBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CZBaseViewController.m; sourceTree = "<group>"; };
+		3845F2991CF9C193001DDE67 /* GTXThreadModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTXThreadModel.h; sourceTree = "<group>"; };
+		3845F29A1CF9C193001DDE67 /* GTXThreadModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTXThreadModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +175,8 @@
 				3845F2141CF9BDBC001DDE67 /* AppDelegate.m */,
 				3845F2161CF9BDBC001DDE67 /* ViewController.h */,
 				3845F2171CF9BDBC001DDE67 /* ViewController.m */,
+				3845F2991CF9C193001DDE67 /* GTXThreadModel.h */,
+				3845F29A1CF9C193001DDE67 /* GTXThreadModel.m */,
 				3845F2191CF9BDBC001DDE67 /* Main.storyboard */,
 				3845F21C1CF9BDBC001DDE67 /* Assets.xcassets */,
 				3845F21E1CF9BDBC001DDE67 /* LaunchScreen.storyboard */,
@@ -414,6 +419,7 @@
 				3845F2581CF9BE0C001DDE67 /* AFHTTPSessionManager.m in Sources */,
 				3845F2681CF9BE0C001DDE67 /* UIImage+GIF.m in Sources */,
 				3845F25F1CF9BE0C001DDE67 /* NSData+ImageContentType.m in Sources */,
+				3845F29B1CF9C193001DDE67 /* GTXThreadModel.m in Sources */,
 				3845F26A1CF9BE0C001DDE67 /* UIImage+WebP.m in Sources */,
 				3845F28F1CF9BE12001DDE67 /* NSObject+CZAddition.m in Sources */,
 				3845F2941CF9BE12001DDE67 /* UIView+CZAddition.m in Sources */,
