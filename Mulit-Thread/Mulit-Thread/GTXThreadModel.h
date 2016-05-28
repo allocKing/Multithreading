@@ -9,5 +9,17 @@
 #import <Foundation/Foundation.h>
 
 @interface GTXThreadModel : NSObject
+/**
+ *  游戏名
+ */
+@property (nonatomic, copy) NSString *name;
+/**
+ *  下载量
+ */
+@property (nonatomic, copy) NSString *download;
+/**
+ *  图标
+ */
+@property (nonatomic, copy) NSString *icon;
 
 @end

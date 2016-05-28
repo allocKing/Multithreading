@@ -8,12 +8,22 @@
 
 #import "ViewController.h"
 #import "AFNetworking.h"
+#import "GTXThreadModel.h"
 
-@interface ViewController ()
+/**
+ *  可重用cell标识符
+ */
+static NSString *cellId = @"cellId";
+
+@interface ViewController ()<UITableViewDataSource>
 /**
  *  表格视图
  */
 @property (nonatomic ,strong) UITableView *table;
+/**
+ *  模型数组
+ */
+@property (nonatomic, strong) NSArray <GTXThreadModel *>*gamesArr;
 
 @end
 
@@ -28,6 +38,10 @@
     UITableView *table = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
     
     self.view = table;
+    
+    table.dataSource = self;
+    
+    [table registerClass:[UITableViewCell class] forCellReuseIdentifier:cellId];
     
     _table = table;
 }
@@ -46,10 +60,39 @@
     NSString *urlString = @"https://raw.githubusercontent.com/allocKing/Multithreading/master/apps.json";
     
     [manager GET:urlString parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSArray * responseObject) {
-        NSLog(@"%@",responseObject);
+//        NSLog(@"%@",responseObject);
+        NSMutableArray *arrM = [NSMutableArray array];
+        for (NSDictionary *dict in responseObject) {
+            GTXThreadModel *model = [[GTXThreadModel alloc]init];
+            
+            [model setValuesForKeysWithDictionary:dict];
+            
+            [arrM addObject:model];
+        }
+        
+        self.gamesArr = arrM.copy;
+        
+        [self.table reloadData];
+        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"网络请求失败");
     }];
+}
+
+#pragma mark - UITableViewDataSource
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+
+    return _gamesArr.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
+    
+    cell.textLabel.text = _gamesArr[indexPath.row].name;
+    
+    return cell;
 }
 
 - (void)didReceiveMemoryWarning {
