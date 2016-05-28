@@ -49,6 +49,8 @@
 		3845F2971CF9BE12001DDE67 /* CZBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3845F2891CF9BE12001DDE67 /* CZBaseView.m */; };
 		3845F2981CF9BE12001DDE67 /* CZBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3845F28B1CF9BE12001DDE67 /* CZBaseViewController.m */; };
 		3845F29B1CF9C193001DDE67 /* GTXThreadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3845F29A1CF9C193001DDE67 /* GTXThreadModel.m */; };
+		3845F2A31CF9EF88001DDE67 /* GTXAppCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3845F2A11CF9EF88001DDE67 /* GTXAppCell.m */; };
+		3845F2A41CF9EF88001DDE67 /* GTXAppCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3845F2A21CF9EF88001DDE67 /* GTXAppCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -137,6 +139,9 @@
 		3845F28B1CF9BE12001DDE67 /* CZBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CZBaseViewController.m; sourceTree = "<group>"; };
 		3845F2991CF9C193001DDE67 /* GTXThreadModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTXThreadModel.h; sourceTree = "<group>"; };
 		3845F29A1CF9C193001DDE67 /* GTXThreadModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTXThreadModel.m; sourceTree = "<group>"; };
+		3845F2A01CF9EF88001DDE67 /* GTXAppCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTXAppCell.h; sourceTree = "<group>"; };
+		3845F2A11CF9EF88001DDE67 /* GTXAppCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTXAppCell.m; sourceTree = "<group>"; };
+		3845F2A21CF9EF88001DDE67 /* GTXAppCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GTXAppCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,8 +180,8 @@
 				3845F2141CF9BDBC001DDE67 /* AppDelegate.m */,
 				3845F2161CF9BDBC001DDE67 /* ViewController.h */,
 				3845F2171CF9BDBC001DDE67 /* ViewController.m */,
-				3845F2991CF9C193001DDE67 /* GTXThreadModel.h */,
-				3845F29A1CF9C193001DDE67 /* GTXThreadModel.m */,
+				3845F2A51CF9F13E001DDE67 /* View */,
+				3845F29C1CF9EF02001DDE67 /* Model */,
 				3845F2191CF9BDBC001DDE67 /* Main.storyboard */,
 				3845F21C1CF9BDBC001DDE67 /* Assets.xcassets */,
 				3845F21E1CF9BDBC001DDE67 /* LaunchScreen.storyboard */,
@@ -314,6 +319,25 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
+		3845F29C1CF9EF02001DDE67 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3845F2991CF9C193001DDE67 /* GTXThreadModel.h */,
+				3845F29A1CF9C193001DDE67 /* GTXThreadModel.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		3845F2A51CF9F13E001DDE67 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3845F2A01CF9EF88001DDE67 /* GTXAppCell.h */,
+				3845F2A11CF9EF88001DDE67 /* GTXAppCell.m */,
+				3845F2A21CF9EF88001DDE67 /* GTXAppCell.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -374,6 +398,7 @@
 				3845F2201CF9BDBC001DDE67 /* LaunchScreen.storyboard in Resources */,
 				3845F21D1CF9BDBC001DDE67 /* Assets.xcassets in Resources */,
 				3845F21B1CF9BDBC001DDE67 /* Main.storyboard in Resources */,
+				3845F2A41CF9EF88001DDE67 /* GTXAppCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,6 +436,7 @@
 				3845F2911CF9BE12001DDE67 /* UIColor+CZAddition.m in Sources */,
 				3845F2601CF9BE0C001DDE67 /* SDImageCache.m in Sources */,
 				3845F2951CF9BE12001DDE67 /* UIViewController+CZAddition.m in Sources */,
+				3845F2A31CF9EF88001DDE67 /* GTXAppCell.m in Sources */,
 				3845F2901CF9BE12001DDE67 /* UIButton+CZAddition.m in Sources */,
 				3845F2981CF9BE12001DDE67 /* CZBaseViewController.m in Sources */,
 				3845F2971CF9BE12001DDE67 /* CZBaseView.m in Sources */,

@@ -6,7 +6,7 @@
 //  Copyright © 2016年 谷统鑫. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface GTXThreadModel : NSObject
 /**
@@ -21,5 +21,9 @@
  *  图标
  */
 @property (nonatomic, copy) NSString *icon;
+/**
+ *  内存缓存图像
+ */
+@property (nonatomic, strong) UIImage *image;
 
 @end

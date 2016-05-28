@@ -9,6 +9,8 @@
 #import "ViewController.h"
 #import "AFNetworking.h"
 #import "GTXThreadModel.h"
+#import "UIImageView+WebCache.h"
+#import "GTXAppCell.h"
 
 /**
  *  可重用cell标识符
@@ -24,6 +26,10 @@ static NSString *cellId = @"cellId";
  *  模型数组
  */
 @property (nonatomic, strong) NSArray <GTXThreadModel *>*gamesArr;
+/**
+ *  下载队列
+ */
+@property (nonatomic, strong) NSOperationQueue *queue;
 
 @end
 
@@ -39,15 +45,20 @@ static NSString *cellId = @"cellId";
     
     self.view = table;
     
+    // 设置行高
+    table.rowHeight = 100;
+    
     table.dataSource = self;
     
-    [table registerClass:[UITableViewCell class] forCellReuseIdentifier:cellId];
+    [table registerNib:[UINib nibWithNibName:@"GTXAppCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:cellId];
     
     _table = table;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    _queue = [[NSOperationQueue alloc]init];
     
     [self loaddata];
     
@@ -88,9 +99,45 @@ static NSString *cellId = @"cellId";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
+    GTXAppCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
     
-    cell.textLabel.text = _gamesArr[indexPath.row].name;
+    cell.nameLabel.text = _gamesArr[indexPath.row].name;
+    
+    cell.downLoad.text = _gamesArr[indexPath.row].download;
+    
+    UIImage *image = [UIImage imageNamed:@"user_default"];
+    
+    cell.appIcon.image = image;
+    
+    if (_gamesArr[indexPath.row].image !=nil ) {
+        
+        NSLog(@"内存缓存");
+        
+        cell.appIcon.image = _gamesArr[indexPath.row].image;
+        
+        return cell;
+    }
+    
+    NSBlockOperation *op = [NSBlockOperation blockOperationWithBlock:^{
+        
+        [NSThread sleepForTimeInterval:1];
+        
+        NSURL *url = [NSURL URLWithString:_gamesArr[indexPath.row].icon];
+        
+        NSData *data = [NSData dataWithContentsOfURL:url];
+        
+        UIImage *image = [UIImage imageWithData:data];
+        
+        _gamesArr[indexPath.row].image = image;
+        
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            
+            cell.appIcon.image = image;
+        }];
+    }];
+    
+    
+    [_queue addOperation:op];
     
     return cell;
 }
